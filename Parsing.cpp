@@ -1,4 +1,29 @@
-string newString;
+#ifndef PARSING_CPP
+#define PARSING_CPP
+
+#include "Parsing.h"
+#include <vector>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+void Parsing::Parsetoken(vector <string>& CmdTkns,
+	vector <string>& ArgTkns,
+	vector <string>& SepTkns,
+	//vector <string>& qouted,
+	string& mystring)
+{
+	vector<string> tokens; // vector where tokenized input string will be placed
+	istringstream line(mystring);
+	for (mystring; getline(line, mystring, ' ');) // tokenizes input string based on spaces
+	{
+		if (!mystring.empty())
+		{
+			tokens.push_back(mystring); // push tokens in to vector tokens
+		}
+	}
+	string newString;
 	string checkString;
 	string Semiword;
 	int k = 0; // k is a counter, resets after finding a connector 
